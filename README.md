@@ -10,5 +10,5 @@
 
 ---
 
-> **oh yeah, pls know that i'm not responsible for whatever you might decide to do with the code i host here; it's just some scripts i'm working on and that might be useful in ctfs or other occasions**
+> **oh yeah, pls know that i'm not responsible for whatever you might decide to do with the code i host here; it's just some scripts i'm working on and that might be useful in ctfs or other occasions - oh, also, i'm not responsible for it being "good" shellcode or reliable shellcode, sadly i'm far from calling myself an expert**
 
