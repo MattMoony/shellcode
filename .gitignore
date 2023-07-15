@@ -403,3 +403,10 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+## allow x64 shellcode
+!x64/
+x64/*.pdb
+x64/*.exe
+x64/*.dll
+x64/*.exports
