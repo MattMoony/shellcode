@@ -2,8 +2,9 @@
 #include <Windows.h>
 
 #define PAUSE_BEFORE	true
+#define NEW_THREAD		false
 #define PAYLOAD \
-		"\x90\x90\x90"
+		"\x90\x90\xc3"
 
 int main()
 {
@@ -36,6 +37,7 @@ int main()
 	getchar();
 #endif
 
+#if NEW_THREAD
 	printf("[*] Launching thread ...\n");
 	hThread = CreateRemoteThreadEx(hProcess, NULL, 0, (LPTHREAD_START_ROUTINE)lpAllocation, NULL, NULL, NULL, NULL);
 	if (hThread == NULL) {
@@ -49,6 +51,10 @@ int main()
 		printf("[-] Thread seems to have failed along the way! (%lx)\n", GetLastError());
 		return 1;
 	}
+#else
+	printf("[*] Jumping to shellcode ...\n");
+	((void (*)()) lpAllocation)();
+#endif
 
 	printf("[+] Success! Exiting now ... \n");
 	return ERROR_SUCCESS;
